@@ -24,11 +24,6 @@
     <link href="css/myStyles.css" rel="stylesheet">  
     <!--customized css ends-->
 
-    <!--local css style added-->
-    <style>
-        .buttonresize {width: 100%}
-    </style>
-
 </head>
 
 <body data-gr-c-s-loaded="true">
@@ -50,7 +45,7 @@
                 <ul class="nav navbar-nav">
                     
                     <li class="active"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-                    <li><a href="AboutUs.html"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
+                    <li><a href="aboutus.html"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                         aria-expanded="false"
@@ -66,29 +61,156 @@
                             <li><a href="#">Weekend Brunch</a></li>
                         </ul>
                     </li>
-                    <li><a href="contactus.html">Contact</a></li>
+                    <li><a href="contactus.html"><span class="glyphicon glyphicon-envelope"> Contact</span></a></li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a data-toggle="modal" data-target="#loginmodal" type="button">
+                        <span class="glyphicon glyphicon-log-in"> Login</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-                <form class="navbar-form navbar-right" role="form" action="#" method="post" enctype="multipart/form-data"> 
+    <!--login Modal added-->
+    <div id="loginmodal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="model-title">Login</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-inline" role="form" action="#" method="post" enctype="multipart/form-data"> 
                 <!-- Above method 'post' used to hide information username and password while sending data to server -->
-                    <div class="form-group">
-                        <label class="control-label sr-only">Email</label>
-                        <input type="text" class="form-control" name="Email" placeholder="Email">
+                        <div class="form-group">
+                            <label class="control-label sr-only">Email</label>
+                            <input type="text" class="form-control input-sm" name="Email" placeholder="Email">
+                        </div>
 
-                        <label class="control-label sr-only">Password</label>
-                        <input type="password" class="form-control" name="Password" placeholder="Password">
+                        <div class="form-group">
+                            <label class="control-label sr-only">Password</label>
+                            <input type="password" class="form-control input-sm" name="Password" placeholder="Password">
+                        </div>
 
                         <label class="checkbox-inline">
                             <input type="checkbox" id="remember" name="remember" value="">
                             <strong>Remember me</strong>
                         </label>
-
-                        <button type="sumbit" class="btn btn-info">Sign In</button>
-                    </div>
-                </form>
+                        <div class="form-group">
+                            <button type="sumbit" class="btn btn-info btn-sm">Sign In</button>
+                            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
+    <!--login Model ends-->
+
+    <!--Reservation modal-->
+    <div id="reservemodal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" id="reserveTable">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Reserve a Table</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                    
+                        <div class="col-xs-12">
+                            <form class="form-horizontal" role="form">
+                                <!--Radio button to select guest(s)-->
+                                <!--Col grid is adjusted to fit both extra-small and small-onward screen sizes-->
+                                <div class="form-group">
+                                    <label class="control-label col-xs-12 col-sm-2">Number of Guests</label>
+                                    <div class="col-sm-6">  
+                                        
+                                        <label class="radio-inline" for="1">
+                                            <input type="radio" id="1" name="guest">
+                                            <strong>1</strong>
+                                        </label>
+                                        
+                                        <label class="radio-inline" for="2">
+                                            <input type="radio" id="2" name="guest">
+                                            <strong>2</strong>
+                                        </label>
+                                        
+                                        <label class="radio-inline" for="3">
+                                            <input type="radio" id="3" name="guest">
+                                            <strong>3</strong>
+                                        </label>
+                                        
+                                        <label class="radio-inline" for="4">
+                                            <input type="radio" id="4" name="guest">
+                                            <strong>4</strong>
+                                        </label>
+
+                                        <label class="radio-inline" for="5">
+                                            <input type="radio" id="5" name="guest">
+                                            <strong>5</strong>
+                                        </label>                           
+                                        
+                                        <label class="radio-inline" for="6">
+                                            <input type="radio" id="6" name="guest">
+                                            <strong>6</strong>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!--To refine below code block-->
+                                <div class="form-group">
+                                    <label class="control-label col-xs-12 col-sm-2">Section</label>
+                                    <div class="btn-group" style="padding-left:15px">
+                                        <button type="button" class="btn btn-success btn-sm">Non-Smoking</button>
+                                        <button type="button" class="btn btn-danger btn-sm">Smoking</button>
+                                    </div>
+                                </div>
+
+                                <!--Date and Time -->
+                                <!--Col grid is adjusted to fit both extra-small and small-onward screen sizes-->
+                                <div class="form-group has-feedback">
+                                    <label class="control-label col-xs-12 col-sm-2 col-sm-offset-0">Date and Time</label>
+                                    
+                                    <div class="col-xs-6 col-sm-3"> <!--To select Date is out of scope as disccused in forum-->
+                                        <label for="date" class="sr-only">Date</label>
+                                        <input type="text" id="date" class="form-control" placeholder="Date">
+                                        <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
+                                    </div>
+
+                                    <div class="col-xs-6 col-sm-offset-1 col-sm-3"> <!--To select Time is out of scope as disccused in forum-->
+                                        <label for="time" class="sr-only">Time</label>
+                                        <input id="time" type="text" class="form-control" placeholder="Time">
+                                        <span class="glyphicon glyphicon-time form-control-feedback"></span> 
+                                    </div>
+                                </div>
+
+                                <!--Reserve and cancel button-->
+                                <!--To refine below code block-->
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2" style="padding:15px">
+                                            <button type="sumbit" class="btn btn-primary btn-sm ">Reserve</button>
+                                            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>  
+                                         </div>
+                                    </div>
+                                
+                                <!--Alert message below-->
+                                <div class="alert alert-warning alert-dismissible col-xs-12 col-sm-12 col-sm-offset-0" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">&times;</span></button>
+                                    <strong>Warning</strong>:: Please <strong><a href="tel:85212345678">call</a></strong> us to reserve for more than six guests.
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Reservation modal ends-->
 
     <header class="jumbotron" id="top">
 
@@ -105,17 +227,82 @@
                     <p style="padding:20px;"></p>
                     <img src="img/logo.png" class="img-responsive">
                 </div>
-                <div class="col-xs-12 col-sm-2">
+                <div class="col-xs-6 col-sm-2">
                     <p style="padding:40px"></p>
-                    <a href="#reserveTable" class="btn btn-warning btn-xs buttonresize">Reserve Table</a> 
-                    <!--buttonresize is local css style provided above-->
-                    <!--not inclued in mystyle.css file as other might not have the class and cause problem while doing assingment evaluation-->
+                    <a class="btn btn-sm btn-warning btn-block" type="botton" data-toggle="modal" data-target="#reservemodal">Reserve Table</a>
+                    <!--if tooltip requeried for reserve button without modal uncomment--> 
+                    <!--<a href="#reserveTable" class="btn btn-sm btn-warning btn-block"
+                    data-toggle="tooltip" title="or Call us at +8521234678" data-placement="bottom">Reserve Table</a> -->
                 </div>
             </div>
         </div>
     </header>
 
+    <!--Carousel Display-->
     <div class="container">
+        <div class="row row-content">
+            <div class="col-xs-12">
+                <div class="carousel slide" id="mycarousel" data-ride="carousel">
+                    
+                    <!--Indicators-->
+                    <ol class="carousel-indicators">
+                        <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#mycarousel" data-slide-to="1"></li>
+                        <li data-target="#mycarousel" data-slide-to="2"></li>
+                    </ol>
+                    
+                    <!--wrapper for the slides-->
+                    <div class="carousel-inner" role="listbox">
+
+                        <div class="item active">
+                        <img class="image-responsive" src="img/uthappizza.png" alt="Uthappizza">
+                        <div class="carousel-caption">
+                                <h2>Uthappizza <span class="label label-danger label-xs">Hot</span> <span class="badge">$4.99</span></h2>
+                                <p>A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.</p>
+                                <p><a class="btn btn-primary btn-xs" href="https://d396qusza40orc.cloudfront.net/phoenixassets/web-frameworks/index.html#">More &raquo;</a></p>
+                        </div>
+                        </div>
+
+                        <div class="item">
+                            <img class="image-responsive" src="img/buffet.png" alt="Uthappizza">
+                            <div class="carousel-caption">
+                                <h2>Weekend Grand Buffet <span class="label label-danger label-xs">New</span></h2>
+                                <p>Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person </p>
+                                <p><a class="btn btn-primary btn-xs" href="https://d396qusza40orc.cloudfront.net/phoenixassets/web-frameworks/index.html#">More &raquo;</a></p>
+                            </div>    
+                        </div>
+
+                        <div class="item">
+                            <img class="image-responsive" src="img/alberto.png" alt="Alberto Somayya">
+                            <div class="carousel-caption">
+                                <h2 class="media-heading">Alberto Somayya</h2>
+                                <h4>Executive Chef</h4>
+                                <p>Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. </p>
+                                <p><a class="btn btn-primary btn-xs" href="https://d396qusza40orc.cloudfront.net/phoenixassets/web-frameworks/index.html#">More &raquo;</a></p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!--chevron carousel controls-->
+                    <a class="left carousel-control" href="#mycarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span></a>
+
+                    <a class="right carousel-control" href="#mycarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>    
+
+                </div>
+            </div>
+        </div>
+
+<!--Carousel Display Ends here-->
+
+
+<!--Normal display without carousel-->
+
         <div class="row row-content">
             <div class="col-xs-12 col-sm-3 col-sm-push-9">
                 <p style="padding:20px;"></p>
@@ -175,17 +362,20 @@
             </div>
         </div>
 
-        <div class="row row-content">
+<!--reservation form without modal-->
+<!--uncomment to see reservation form on the page-->
+
+        <!--<div class="row row-content">
             <div id="reserveTable" class="col-xs-12 col-sm-3">
-                <div style="padding-top:45px;text-align:center"> <!--local style provided for label-->
+                <div style="padding-top:45px;text-align:center">
                     <h3>Reserve a Table</h3>
                 </div>
             </div>
+        
             <div class="col-xs-12 col-sm-9">
                 <form class="form-horizontal" role="form">
-
                     <div class="form-group">
-                        <label class="control-label col-sm-2 col-sm-offset-0 ">Number of Guests</label>
+                        <label class="control-label col-xs -12 col-sm-2">Number of Guests</label>
                         <div class="col-sm-6">  
                             
                             <label class="radio-inline" for="1">
@@ -223,33 +413,37 @@
                     <div class="form-group has-feedback">
                         <label class="control-label col-xs-12 col-sm-2 col-sm-offset-0">Date and Time</label>
                         
-                        <div class="col-xs-6 col-sm-3 ">
-                            <input type="text" class="form-control date-picker" placeholder="Date">
+                        <div class="col-xs-6 col-sm-3">
+                            <label for="date" class="sr-only">Date</label>
+                            <input type="text" id="date" class="form-control" placeholder="Date">
                             <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
                         </div>
 
-                        <div class="col-xs-6 col-sm-offset-0 col-sm-3">
-                            <input type="text" class="form-control" placeholder="Time">
+                        <div class="col-xs-6 col-sm-offset-1 col-sm-3">
+                            <label for="time" class="sr-only">Time</label>
+                            <input id="time" type="text" class="form-control" placeholder="Time">
                             <span class="glyphicon glyphicon-time form-control-feedback"></span> 
                         </div>
-                    </div>
-                    
+                    </div>  
                     <div class="form-group">
                         <div class="col-sm-3 col-sm-offset-2">
                             <button type="sumbit" class="btn btn-primary btn-sm">Reserve</button>
                         </div>
                     </div>
                     <div class="alert alert-warning alert-dismissible col-xs-12 col-sm-12 col-sm-offset-0" role="alert">
-                        <button type="button" class="close" data-dismiss="<alert></alert>" aria-label="close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">&times;</span></button>
                         <strong>Warning</strong>:: Please <strong><a href="tel:85212345678">call</a></strong> us to reserve for more than six guests.
                     </div>
                     
                 </form>
             </div>
-            <!--Extra work below: added button to bring user back to top page-->
-            <a href="#top" class="btn btn-primary btn-xs col-xs-offset-11 col-xs-1" role="button">Top</a>
+            
+            <div class="col-xs-offset-10 col-xs-2 col-md-offset-11 col-md-1">                               
+                <a href="#top" class="btn btn-primary btn-sm btn-block" role="button"
+                data-toggle="tooltip" title="Go top page" data-placement="bottom">Top</a>
+            </div>
         </div>
-    </div>
+    </div>-->
 
     <footer class="row-footer">
         <div class="container">
@@ -296,7 +490,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <!--bootstrap ends-->
-
+<script>
+    $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();    
+    });
+</script>
 </body>
 <span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span>
 </html>
